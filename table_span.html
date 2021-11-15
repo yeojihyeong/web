@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>span속성</title>
+</head>
+
+<body>
+    <!-- column, rows 확장 -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th rowspan="2">이름</th>
+                <th>영어</th>
+                <th>수학</th>
+            </tr>
+            <tr>
+                <th>평균</th>
+                <th>합계</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">홍길동</td>
+                <td>80</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>85</td>
+                <td>170</td>
+            </tr>
+            <tr>
+                <td rowspan="2">김민수</td>
+                <td>90</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>95</td>
+                <td>190</td>
+            </tr>
+            <tr>
+                <td rowspan="2">박명진</td>
+                <td>30</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>50</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br><br>
+    <table border="50">
+        <caption>회원리스트</caption>
+        <thead>
+            <tr>
+                <th rowspan="2">이름</th>
+                <th colspan="2">연락처</th>
+            </tr>
+            <tr>
+                <th>집전화</th>
+                <th>휴대전화</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">홍길동</td>
+                <td colspan="2">대구중구 500</td>
+            </tr>
+            <tr>
+                <td>111-12324</td>
+                <td>101-2121-4566</td>
+            </tr>
+            <tr>
+                <td rowspan="2">김민수</td>
+                <td colspan="2">대구 동구 100</td>
+            </tr>
+            <tr>
+                <td>12121-314566</td>
+                <td>213032-023-5466</td>
+            </tr>
+            <tr>
+                <td rowspan="2">박명진</td>
+                <td colspan="2">대구 수성구 400</td>
+            </tr>
+            <tr>
+                <td>053-4563-412563</td>
+                <td>1012-1231-+454564</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
