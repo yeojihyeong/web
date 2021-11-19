@@ -1,0 +1,54 @@
+/* mystyle.css */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    /* background-image: url(../캡처.PNG); */
+    background-color: antiquewhite;
+    background-size: 30%;
+    height: 20vh;
+    background-repeat: repeat;  /*반복*/
+}
+header>div.home{
+    float: left;
+    width: 10vw;
+
+}
+header img{
+    width: 5vw;
+    margin: 5px 10px 5px 20px;
+}
+
+header>div.welcome{
+    float: left;
+    width: 30vw;  
+    margin-top: 5vh;
+    margin-left: 20vw;
+}
+header h2{
+    font-size: 35px;
+    color: aquamarine;
+    font-weight: bold;
+}
+header>div.login{
+    float: right;
+    width: 30vw;
+    margin: 10vh 0 10vh 0;
+}
+header>div.login>form>input:not([type="submit"]){
+    height: 30px;
+    width: 150px;
+}
+header from>input[type="submit"]{
+    background-color: cyan;
+    width: 100px;
+    height: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    position: relative;
+    top: 3px;
+    
+}
