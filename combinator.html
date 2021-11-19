@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #apple{
+            background-color: greenyellow;
+        }
+        /*
+        .image>ul>li {
+            background-color: greenyellow;
+        }
+*/
+        /* element>element : 자손, element element : 후손 */
+        /*
+        div ul li{
+            background-color: greenyellow;
+        }
+        */
+        div ol li{
+            background-color: grey;
+        }
+/*
+        ul, ol{
+            color: red;
+        }
+*/
+        .image.ul,
+        .image>ol{
+            color: red;
+        }
+        div.other>p~span{
+            color: blue;
+        }
+        /*
+        p,
+        span,
+        h4{
+            background-color: yellowgreen;
+        }
+*/
+        li:nth-child(2n){
+            background-color: violet;
+        }
+        li:nth-child(2){
+            background-color: red;
+        }
+        li:nth-child(3){
+            background-color: blue;
+        }
+
+        .other>span:nth-child(3){
+            background-color: black;
+            color: white;
+        }
+        .other>span:nth-of-type(2){
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="other">
+            <p>apple</p>
+            <h4>banana</h4>
+            <span>cherry</span>
+            <p>apple1</p>
+            <h4>banana1</h4>
+            <span>cherry1</span>
+
+        </div>
+        <div class="image">
+            <ul>
+                <li >apple</li>
+                <li>banana</li>
+                <li>cherry</li>
+            </ul>
+        </div>
+        <div class="content">
+            <ol>
+                <li>apple</li>
+                <li>banana</li>
+                <li>cherry</li>
+            </ol>
+        </div>
+
+</body>
+</html>
