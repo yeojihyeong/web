@@ -1,0 +1,14 @@
+thead>th{
+    background-color: yellow;
+    color: yellowgreen;
+}
+
+tbody>tr>td:nth-child(1){
+    background-color: red;
+    color: white;
+}
+
+tbody>tr>td:nth-child(7){
+    background-color: blue;
+    color: white;
+}
