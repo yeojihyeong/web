@@ -1,4 +1,3 @@
-<script>
     var kim = {
         name: 'Kim',
         age: 25,
@@ -57,4 +56,3 @@
         console.log('---------------------------');
     }
     document.write('</ul>');
-</script>
