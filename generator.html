@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var data = `
+        [{"id":1,"first_name":"Sibel","last_name":"Jobb","email":"sjobb0@sohu.com","gender":"Female","salary":14756},
+{"id":2,"first_name":"Corry","last_name":"Coker","email":"ccoker1@addthis.com","gender":"Male","salary":8278},
+{"id":3,"first_name":"Cherianne","last_name":"Beams","email":"cbeams2@drupal.org","gender":"Male","salary":6662},
+{"id":4,"first_name":"Alisha","last_name":"Sinton","email":"asinton3@uiuc.edu","gender":"Male","salary":12623},
+{"id":5,"first_name":"Barbaraanne","last_name":"Hawker","email":"bhawker4@amazon.co.uk","gender":"Female","salary":14471},
+{"id":6,"first_name":"Lance","last_name":"Matczak","email":"lmatczak5@gov.uk","gender":"Female","salary":4909},
+{"id":7,"first_name":"Essy","last_name":"Worlidge","email":"eworlidge6@facebook.com","gender":"Male","salary":3389},
+{"id":8,"first_name":"Allie","last_name":"Lesley","email":"alesley7@intel.com","gender":"Male","salary":12275},
+{"id":9,"first_name":"Quinta","last_name":"De Benedictis","email":"qdebenedictis8@telegraph.co.uk","gender":"Female","salary":8535},
+{"id":10,"first_name":"Alec","last_name":"Mitchelmore","email":"amitchelmore9@ifeng.com","gender":"Male","salary":9294}]
+        `;
+        var employees = JSON.parse(data); // json문자열 => javascript object로 변경
+        var genderEmp = [];
+        var salaryEmp = [];
+
+        var fields = ['id', 'first_name', 'last_name', 'salary', 'email', 'gender'];
+        window.addEventListener('DOMContentLoaded', onLoadFnc);
+
+        function onLoadFnc() {
+            //테이블 타입으로 리스트 출력
+            var table = document.createElement('table');
+            table.setAttribute('border', '1');
+            table.setAttribute('id','tbl');
+            var thead = makeHead();
+            var tbody = makeBody(employees);
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            var parent = document.getElementById('show');
+            parent.appendChild(table);
+
+            //radio버튼에이벤트 등록.
+        //     var radios = document.querySelectorAll('div>input[type="radio"]');
+        //     console.log(radios);
+        //     for (var radio of radios) {
+        //         radio.onchange = onChanegeFunc;
+        //     }
+         
+        var buttons = document.querySelectorAll('div>button');
+        for(var button of buttons)
+        {
+            button.onclick = onClickFnc;
+        }
+    }
+
+        function onClickFnc(){
+            var salary = this.salary;
+            salaryEmp = employees.filter(item => item.salary == salary);
+            document.getElementById('tbd').remove();
+            document.getElementById('tbl').appendChild(makeBody(salaryEmp));
+        }
+        
+
+
+        // function onChanegeFunc(){ //onchange 이벤트의 콜백함수
+        //     //  console.log(this);
+        //             var gender = this.value;
+        //             genderEmp = employees.filter(item => item.gender == gender);
+        //             // console.log(genderEmp);
+        //             document.getElementById('tbd').remove();
+        //             document.getElementById('tbl').appendChild(makeBody(genderEmp));
+        // }
+
+        function makeBody(ary) {
+            var tbody = document.createElement('tbody');
+            tbody.setAttribute('id', 'tbd');
+            //data 건수만큼 반복
+            ary.forEach(item => {
+                var tr = makeTr(item);
+                tbody.appendChild(tr);
+            });
+
+            return tbody;
+        }
+
+        function makeHead() {
+            var thead = document.createElement('thead'); // tr>td.td.td.td.td
+            var tr = document.createElement('tr');
+            for (var field of fields) {
+
+                //fields.forEach(item => { }); //중괄호안에 밑에 3줄 입력하면 사용가능
+                var th = document.createElement('th');
+                th.textContent = field
+                tr.appendChild(th);
+            }
+            thead.appendChild(tr);
+            return thead;
+        }
+
+        
+
+        function makeTr(employee) {
+            var tr = document.createElement('tr');
+            fields.forEach(field => {
+                var td = document.createElement('td');
+                td.textContent = employee[field];
+                tr.appendChild(td);
+            });
+            return tr;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        남자 <input type="radio" name="gender" value="Male">
+        여자 <input type="radio" name="gender" value="Female">
+        <input type="text" name ="number", id="searchSalary">
+        <button id='searchBtn'>조회</button>
+    </div>
+    <div id="show"></div>
+    <!-- <script src="generator.js"></script> -->
+</body>
+
+</html>

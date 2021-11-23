@@ -6,222 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="calendar.css">
+    <script src="array.js"></script>
+    <script>
+        var fruits = ['Apple', 'Banana', 'Cherry'];
+        
+        window.addEventListener('DOMContentLoaded', function () { //이벤트이름 , 실행할 함수
+            var show = document.getElementById('show'); //body 부분에서 id가 유일한 값이어야함.
+            console.log(show.textContent);
+            var shows = document.getElementsByTagName('div'); //div 전부. tag로 호출
+            console.log(shows[2].textContent);//여러건중에 어느건 들고 올건지 선택
+            var cls = document.getElementsByClassName('show'); //클래스 이름으로 호출
+            console.log(cls[0].textContent);
+            
+            var selector = document.querySelectorAll('ol>li'); //선택자? 클래스 선택 : .show ID = #show querySelector(단건) | querySelectorAll(여러건)
+            console.log(selector);
+            selector[0].textContent = '사과'; //텍스트 값 변경가능
+
+                var li = document.createElement('li'); //행추가
+                li.textContent = 'Melon';
+                var ol = document.querySelector('ol');
+                ol.appendChild(li);
+
+            var div1 =document.createElement('div');
+            div1.textContent = 'div1';
+            var div2 =document.createElement('div');
+            div1.appendChild(div2);
+            div2.textContent = 'Last';
+            div2.setAttribute('id','Last');
+            ol = document.querySelector('ol');
+            ol.appendChild(div1);
+
+
+        }); 
+    </script>
+
 </head>
 
 <body>
+    <div id="show">hello1</div>
+    <div class="show">hello2</div>
+    <div class='show'>hello3</div>
+    <p class="show">hello4</p>
+    <ul>
+        <li id='apple'> Apple</li>
+        <li id='banana'>Banana</li>
+        <li id='cherry'>Cherry</li>
+    </ul>
 
-    <input type="text", id="user_id" value="12345"><br>
-    <button onclick="getIdFunc()">id 값 가져오기</button>
-    <div id="show">
-    </div>
-    <button onclick="drawTable()">클릭</button>
-    <!-- <button onclick="createList()">wow</button> -->
-    <!-- <div class="container"> -->
-    <!-- <ul> -->
-    <!-- <li>Apple</li> -->
-    <!-- <li>Banana</li> -->
-    <!-- <li>Cherry</li> -->
-    <!-- </ul> -->
-    <!-- </div> -->
-
-    <!-- </div> -->
-    <script>
-
-        function getIdFunc(){
-            var userId = document.getElementById('user_id');
-            console.log(userId.value);
-        }
-
-        var students = [{
-                name: "홍길동",
-                math: 80,
-                eng: 90,
-                garde: '1학년 1반',
-                avg: 85
-            },
-            {
-                name: "김수미",
-                math: 85,
-                eng: 85,
-                garde: '1학년 2반',
-                avg: 85
-            },
-            {
-                name: "김민수",
-                math: 90,
-                eng: 75,
-                garde: '1학년 3반',
-                avg: 82.5
-            }
-        ];
-
-        function drawTable() {
-            var table = document.createElement('table');
-            table.setAttribute('border', '1'); //속성지정
-
-            var thead = document.createElement('thead');
-            //타이틀 부분 생성
-
-            var tr = document.createElement('tr');
-            for (var val in students[0]) {
-                var td = document.createElement('th');
-                td.textContent = val;
-                tr.appendChild(td);
-            }
-
-            table.appendChild(tr);
-            table.appendChild(thead);
-            //데이터 부분 생성
-            var tbody = document.createElement('tbody');
-            for (var student of students) { //배열
-                var tr = document.createElement('tr');
-                for (var field in student) { //배열안 값 호출
-                    var td = document.createElement('td');
-                    td.textContent = student[field];
-                    tr.appendChild(td);
-                }
-                tbody.appendChild(tr);
-            }
-            table.appendChild(tbody);
-
-            //화면 출력
-            var bd = document.getElementsByTagName('div');
-            bd[0].appendChild(table);
-
-
-            var trtag = [
-                document.createElement('tr'),
-                document.createElement('tr'),
-                document.createElement('tr')
-            ]
-
-            var tdtag = [
-                document.createElement('td'),
-                document.createElement('td'),
-                document.createElement('td')
-            ]
-        }
-
-
-        var table = document.createElement('table');
-        table.setAttribute('border', '1');
-
-        var thead = document.createElement('thead');
-        //타이틀 부분 생성
-
-        var tr = document.createElement('tr');
-        for (var val in students[0]) {
-            var td = document.createElement('th');
-            td.textContent = val;
-            tr.appendChild(td);
-        }
-
-        table.appendChild(tr);
-        table.appendChild(thead);
-        //데이터 부분 생성
-        var tbody = document.createElement('tbody');
-        for (var student of students) { //배열
-            var tr = document.createElement('tr');
-            for (var field in student) { //배열안 값 호출
-                var td = document.createElement('td');
-                td.textContent = student[field];
-                tr.appendChild(td);
-            }
-            tbody.appendChild(tr);
-        }
-        table.appendChild(tbody);
-
-        //화면 출력
-       // var bd = document.getElementsByTagName('div');
-       var db = document.getElementById('show')
-        //bd[0].appendChild(table);
-        db.appendChild(table);
-
-
-        var trtag = [
-            document.createElement('tr'),
-            document.createElement('tr'),
-            document.createElement('tr')
-        ]
-
-        var tdtag = [
-            document.createElement('td'),
-            document.createElement('td'),
-            document.createElement('td')
-        ]
-
-
-
-        /*
-        var div = document.createElement('div');
-        var table = document.createElement('table');
-        var tbody = document.createElement('tbody');
-        var tr = document.createElement('tr');
-        var td = document.createElement('td');
-        
-        table.setAttribute('border','1');
-
-        tbody.appendChild(tr);
-        table.appendChild(tbody);
-        div.appendChild(table);
-        td.textContent = '홍길동';
-        tr.appendChild(td);
-        td = document.createElement('td');
-        td.textContent = '80';
-        tr.appendChild(td);
-        td = document.createElement('td');
-        td.textContent = '90';
-        tr.appendChild(td);
-        td = document.createElement('td');
-
-        tr = document.createElement('tr');        
-        tbody.appendChild(tr);
-        
-        td.textContent = '김수미';
-        tr.appendChild(td);
-        td = document.createElement('td');
-        td.textContent = '85';
-        tr.appendChild(td);
-        td = document.createElement('td');
-        td.textContent = '85';
-        tr.appendChild(td);
-        td = document.createElement('td');
-
-        tr = document.createElement('tr');
-        tbody.appendChild(tr);
-
-        td.textContent = '김민수';
-        tr.appendChild(td);
-        td = document.createElement('td');
-        td.textContent = '90';
-        tr.appendChild(td);
-        td = document.createElement('td');
-        td.textContent = '75';
-        tr.appendChild(td);
-        td = document.createElement('td');
-
-        tr = document.createElement('tr');
-        tbody.appendChild(tr);
-
-        var bd = document.getElementsByTagName('body');
-        bd[0].appendChild(div);
-        
-*/
-
-        /*
-        var div = document.createElement('div');
-        div.setAttribute('id','main');
-        var ul = document.createElement('ul');
-        var li = document.createElement('li');
-        li.textContent='Apple'
-        ul.appendChild(li);//ul > li
-        div.appendChild(ul);//div>ul
-        var bd = document.getElementsByTagName('body');
-        bd[0].appendChild(div);
-        */
-    </script>
-    <!-- <script src="dom.js"></script> -->
+    <ol>
+        <li id='apple'> Apple</li>
+        <li id='banana'>Banana</li>
+        <li id='cherry'>Cherry</li>
+    </ol>
 
 </body>
 
