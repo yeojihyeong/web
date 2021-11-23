@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam01.html / cholee@yedam.ac </title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 5px;
+        padding: 15px;
+    }
+
+    div.main {
+        border: 1px solid red;
+        overflow: auto;
+  
+    }
+
+    header {
+        float: left;
+        background-color: pink;
+        width: 99.3%;
+        border: 1px solid skyblue;
+    }
+    h1,
+    h2,
+    h3{
+        padding: 5px;
+    }
+
+    section {
+        float: left;
+        border: 1px solid gray;
+        width: 63%;
+    }
+
+    div.text {
+        margin-left: 30px;
+        margin-top: 5px;
+        background-color: yellow;
+        width: 90%;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding-top: 3px;
+        margin-bottom: 5px;
+        padding-bottom: 3px;
+
+    }
+
+    table{
+        margin-left: 13px;
+        width: 94%;
+        padding-top: 3px;
+        padding-bottom: 3px;
+   
+    }
+    table>thead {
+        background-color: blue;
+        color: white;
+        height: 4px;
+    }
+    table>thead>tr>th{
+        padding: 7px;
+    }
+    table>tbody>tr>td{
+        padding: 7px;
+    }
+    table>tbody {
+        text-align: center;
+        height: 4px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    table>tbody>tr:nth-child(2n+1) {
+        background-color: rgb(219, 245, 255);
+    }
+
+    table>tbody>tr:nth-child(2n) {
+        background-color: rgb(158, 224, 250);
+    }
+
+    aside {
+        float: right;
+        width: 35.5%;
+        background-color: gray;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    footer {
+        float: left;
+        width: 99.3%;
+        border: 1px solid gray;
+    }
+    
+    div.main>header>div>a{
+        color: green;
+    }
+</style>
+
+<body>
+    <div class="main">
+
+        <header>
+            <h1>ONLINE SSAFY</h1>
+            <div>
+                <a href="">메뉴1</a>
+                <a href="">메뉴2</a>
+                <a href="">메뉴3</a>
+                <a href="">메뉴4</a>
+            </div>
+        </header>
+        <section>
+            <h3>기사1</h3>
+            <div class="text">
+                휘장은 한글'서울'을 서울의 산, 해, 한강으로 나타내면서 전체적으로는 신명나는 사람의 모습을 형상화 한것으로 인간 중심도시를 지향하는 서울을 상징합니다. 자연-인간-도시의 맥락 속에서
+                녹색 산은 환경사랑, 청색 한강은 역사와 활력, 가운데 해는 미래의 비전과 희망을 함축하고, 이 세가지 요소를 붓터치로 자연스럽게 연결하여 서울의 이미지와 사람의 활력을 친군하게 느낄 수
+                있도록 하였습니다. <br>
+                녹색 산은 환경사랑, 청색 한강은 역사와 활력, 가운데는 해는 미래의 비전과 희망을 함축하고, 이 세가지 요소를 붓터치로 자연스럽게 연결하여 서울의 이미지와 사람의 활력을 친근하게 느낄
+                수 있도록 하였습니다.
+            </div>
+
+            <h3>기사2</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Make Insert date time customizable.</td>
+                        <td>강감찬</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mark date time order reversible for short</td>
+                        <td>장영실</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Add insert Date/Time commands shortout</td>
+                        <td>안중근</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Fix regressiong: no error message when locked</td>
+                        <td>김두한</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Make "confirm Save All" dialog more clear:</td>
+                        <td>계백</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>improve JSON,PHP,PYTHON,CSS,BANNC and</td>
+                        <td>최무선</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+        <aside>
+            <h2>SIDEBAR</h2>
+            <div>
+                모든 국민은 근로의 의무를 진다. 국가는 근로의 의무의 내용과 조건을 민주주의원칙에 따라 법률로 정한다.
+            </div>
+        </aside>
+
+        <footer>
+            <h2>Footer</h2>
+            <div>
+                이 헌법시행 당시의 법령과 조약은 이 헌법에 위배되지 아니하는 한 그효력을 지속한다.
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

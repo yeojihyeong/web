@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="array.js"></script>
+    <script>
+        var fruits = ['Apple', 'Banana', 'Cherry'];
+        
+        window.addEventListener('DOMContentLoaded', function () { //이벤트이름 , 실행할 함수
+            var show = document.getElementById('show'); //body 부분에서 id가 유일한 값이어야함.
+            console.log(show.textContent);
+            var shows = document.getElementsByTagName('div'); //div 전부. tag로 호출
+            console.log(shows[2].textContent);//여러건중에 어느건 들고 올건지 선택
+            var cls = document.getElementsByClassName('show'); //클래스 이름으로 호출
+            console.log(cls[0].textContent);
+            
+            var selector = document.querySelectorAll('ol>li'); //선택자? 클래스 선택 : .show ID = #show querySelector(단건) | querySelectorAll(여러건)
+            console.log(selector);
+            selector[0].textContent = '사과'; //텍스트 값 변경가능
+
+                var li = document.createElement('li'); //행추가
+                li.textContent = 'Melon';
+                var ol = document.querySelector('ol');
+                ol.appendChild(li);
+
+            var div1 =document.createElement('div');
+            div1.textContent = 'div1';
+            var div2 =document.createElement('div');
+            div1.appendChild(div2);
+            div2.textContent = 'Last';
+            div2.setAttribute('id','Last');
+            ol = document.querySelector('ol');
+            ol.appendChild(div1);
+
+
+        }); 
+    </script>
+
+</head>
+
+<body>
+    <div id="show">hello1</div>
+    <div class="show">hello2</div>
+    <div class='show'>hello3</div>
+    <p class="show">hello4</p>
+    <ul>
+        <li id='apple'> Apple</li>
+        <li id='banana'>Banana</li>
+        <li id='cherry'>Cherry</li>
+    </ul>
+
+    <ol>
+        <li id='apple'> Apple</li>
+        <li id='banana'>Banana</li>
+        <li id='cherry'>Cherry</li>
+    </ol>
+
+</body>
+
+</html>
