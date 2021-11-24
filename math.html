@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math.html</title>
+</head>
+
+<body>
+    <script>
+        var num = 12.3;
+        console.log(parseInt(num));
+        num = '-12.1';
+        console.log(parseInt(num));
+
+        var result = Math.round(num)
+        console.log(result);
+
+        result = Math.trunc(num);
+        console.log(result);
+
+        result = Math.floor(num);
+        console.log(result);
+
+        result = Math.ceil(num);
+        console.log(result);
+
+        result = Math.sign(num);
+        console.log(result);
+
+        if (Math.sign(num) == 1) console.log('양수')
+        else if (Math.sign(num) == -1) console.log('음수');
+
+        result = Math.abs(num);
+        console.log(result);
+
+        console.log(Math.max(1, -4));
+        console.log(Math.min(1, -4));
+        console.log(Math.sqrt(2));
+
+        console.clear();
+
+        Math.random(); //0~1사이의 임의수 
+        // 1 ~6
+        var uniqNum = [];
+
+
+        //indexof
+        // for (var i = 0; i <=2 ; i++) {
+        //     result = Math.floor(Math.random() * 6 + 1);
+        //    if(uniqNum.indexOf(result)!=-1){
+        //        i--;
+        //        continue;
+        //    }
+        //     console.log('임의의수 : ' + result);
+        //     uniqNum.push(result);
+        // }
+
+
+        for (var i = 0; i <= 2; i++) {
+            result = Math.floor(Math.random() * 6 + 1);
+
+            for (var j = 0; j <= uniqNum.length; j++) {
+                if (uniqNum[j] == result) {
+                    --i;
+                    continue;
+                } else {
+                    console.log('임의의수 : ' + result);
+                    uniqNum.push(result);
+                    break;
+                }
+            }
+
+        }
+        console.log(uniqNum);
+        console.clear();
+
+        var numbers = new Set();
+        while(numbers.size<10){
+            numbers.add(Math.floor(Math.random() * 20) + 1);
+            if(uniqNum.indexOf(result)==-1){
+                uniqNum.push(result);
+            }
+            lnth = uniqNum.length;
+        }
+        uniqNum.sort(function(a,b){
+            return a-b; //a>b +  a<b -
+        });
+        uniqNum.reverse();
+        console.log(uniqNum);
+
+        // var numbers = new Set();
+        // while(numbers.size<3){
+        //     numbers.add(Math.floor(Math.random()*6)+1);
+        // }
+        // numbers.add(2);
+        // numbers.add(3);
+        // numbers.add(1);
+        // numbers.add(1); //중복값 안들어갑니다.
+
+        // result = numbers.values();
+
+        // for( var r of result){
+        //     console.log(r);
+        // }
+
+        // // numbers.delete(3);
+        // console.log(result);
+        
+
+        numbers.forEach(item => {
+            console.log(item);
+        })
+    </script>
+</body>
+
+</html>
