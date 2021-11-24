@@ -11,6 +11,7 @@ header{
     background-size: 30%;
     height: 20vh;
     background-repeat: repeat;  /*반복*/
+    background: linear-gradient(to bottom,green,white 50%, rgb(122,122,122));
 }
 header>div.home{
     float: left;
@@ -20,6 +21,7 @@ header>div.home{
 header img{
     width: 5vw;
     margin: 5px 10px 5px 20px;
+    border-radius: 50%;
 }
 
 header>div.welcome{
@@ -42,7 +44,7 @@ header>div.login>form>input:not([type="submit"]){
     height: 30px;
     width: 150px;
 }
-header from>input[type="submit"]{
+header>div.login>form>input[type="submit"]{
     background-color: cyan;
     width: 100px;
     height: 30px;
@@ -52,3 +54,198 @@ header from>input[type="submit"]{
     top: 3px;
     
 }
+nav{
+    float: left;
+    width: 20%;
+    height: 60vh;
+    margin: 1%;
+    border-right: gray solid 2px;
+}
+section{
+    float: left;
+    width: 50%;
+    height: 60vh;
+    margin: 1%;
+    border-right: gray solid 2px;
+}
+section>div.contents>div.item{
+    float: left;
+    width: 160px;
+    margin: 3px;
+    border: 1px solid red;
+}
+section footer{
+    float: left;
+    width: 100%;
+}
+div.contents>div.item>img{
+    width: 150px;
+    height: 210px;
+}
+
+aside{
+    float: left;
+    width: 24%;
+    margin: 1%;
+}
+nav ul{
+    list-style-type: none;
+}
+
+nav li{
+    width: 100px;
+    height: 25px;
+    margin-bottom: 5px;
+    background-color: blueviolet;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 3px;
+}
+nav li:hover{
+    background-color: gray;
+    color: white;
+}
+
+nav li>div.sub {
+    position: relative;
+    left: 100px;
+    top: -20px;
+}
+ nav li>div>p{ 
+    width: 100px;
+    height: 35px;
+    background-color: wheat;
+    margin-bottom: 3px;
+    padding: 4px;
+}
+
+nav li:hover div.sub{
+    display: block;
+    color: green;
+
+}
+nav li>div.sub{
+    display: none;
+}
+
+#id01{
+    display: none;
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 18px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 30%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 8px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 10px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }

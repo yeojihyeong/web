@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<!-- <script src="basic.js"></script> -->
+
+<script>
+    var kim = {
+            name: 'kim',
+            age: 25,
+            phone: '010-1111-1234'
+        }
+
+        var lee = {
+            name: "lee",
+            age: 28,
+            phone: '010-4321-4321'
+        }
+
+        var park = {
+            name: "park",
+            age: 33,
+            phone: '010-9876-1234'
+        }
+        for (var field in park) {
+            console.log(field, park[field]);
+        }
+        console.clear();
+        var objAry = [kim, lee, park];
+
+        for (var obj of objAry) { //for(String str : strList) {}
+            for (var field in obj) {
+                document.write(`<li> ${obj[field]}</li>`);
+            }
+            console.log('-------------------------------');
+            // console.log(obj);
+        }
+        document.write();
+
+</script>
+<body>
+    
+</body>
+</html>
