@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string.html</title>
+    <script>
+        var str = `Lorem lorem ipsum dolor sit amet, lorem consectetur adipisicing elit.`;
+        console.log(str.length); //69
+        var newStr = str.slice(0, 10);
+        console.log(newStr);
+        newStr = str.substring(0, 15);
+        console.log(newStr);
+        newStr = str.substr(-7, 7); //두번째 매개값 갯수만큼 불러옴
+        console.log(newStr);
+        // var reg = / /; new RegExp();
+        newStr = str.replace(/lorem/g, '로오오오오오오오오오오오렘').replace('.', '').replace(',', '');
+        console.log(newStr);
+        newStr = str.charAt(10);
+        console.log(newStr);
+        newStr = str.charCodeAt(10);
+        console.log(newStr);
+
+        var person_no = [
+            '950403-1234567',
+            '950403 2234567',
+            '010403/3234567',
+            '21040342345671', //2021
+            '950403*1234567'
+        ];
+
+        console.clear();
+        var gen = check_gender('950403*1234567');
+        console.log(gen);
+
+
+
+
+
+        function check_gender(e) {
+
+            var year = e.slice(0, 2);
+            console.log(year)
+            var gender = e.slice(-7, -6);
+            console.log(gender)
+
+
+            if ( (( year>21 ) && gender == 1 ) || (year<=21) && gender == 3) {
+                return '남';
+            } else if ( (( year>21) && gender == 2) || (year<=21) &&  gender == 4) {
+                return '여';
+            } else {
+                return "잘못된값입니다.";
+            }
+
+        }
+        // window.location['href'] = "https://www.w3schools.com/js/js_string_methods.asp";
+    </script>
+</head>
+
+<body>
+    주민번호: <input type="text" id="SSN"> <br>
+    남: <input type="radio" name="gender" value='남'>
+    여: <input type="radio" name="gender" value='여'>
+    잘못된번호: <input type="radio" name="gender" value='잘못된값입니다.'>
+    
+
+
+    <script>
+    var spec = ['*','-','/','&','%',',','.',' '];
+    document.getElementById("SSN").addEventListener('change',function(){
+        console.log(this.value);
+        var birth = this.value;
+        for(var str of spec){
+            birth = birth.replace(str,'');
+        }
+        if(birth.length !=13){
+            console.log('잘못된 값입니다.')
+        return;
+        }
+
+        var gen = check_gender(birth);
+    
+        var genders = document.querySelector('input[value="'+gen+'"]');
+        genders.checked = true;
+        
+        // if(gen== '남')
+        // genders[0].checked = true;
+        // else if(gen == '여')
+        // genders[1].checked = true;
+        // else
+        // genders[2].checked = true;
+
+        console.log(gen);
+    });
+</script>
+</body>
+
+</html>

@@ -27,48 +27,41 @@
         window.addEventListener('DOMContentLoaded', onLoadFnc);
 
         function onLoadFnc() {
-            //테이블 타입으로 리스트 출력
             var table = document.createElement('table');
+            table.setAttribute('id', 'tbl');
             table.setAttribute('border', '1');
-            table.setAttribute('id','tbl');
             var thead = makeHead();
             var tbody = makeBody(employees);
             table.appendChild(thead);
             table.appendChild(tbody);
-            var parent = document.getElementById('show');
-            parent.appendChild(table);
-
-            //radio버튼에이벤트 등록.
-        //     var radios = document.querySelectorAll('div>input[type="radio"]');
-        //     console.log(radios);
-        //     for (var radio of radios) {
-        //         radio.onchange = onChanegeFunc;
-        //     }
-         
-        var buttons = document.querySelectorAll('div>button');
-        for(var button of buttons)
-        {
-            button.onclick = onClickFnc;
+            var bd = document.getElementById('show');
+            bd.appendChild(table);
+            //radio버튼에 이벤트 등록
+            // var rdios = document.querySelectorAll('div>input[type="radio"]');
+            // for (var radio of rdios) {
+            // radio.onchange = onchangeFnc;
+            // }
+            //btn 조회이벤트 추가
+            var btn=document.getElementById('searchBtn');
+            console.log(btn);
+            btn.onclick=onchangeFnc;
         }
-    }
 
-        function onClickFnc(){
-            var salary = this.salary;
-            salaryEmp = employees.filter(item => item.salary == salary);
+        function onchangeFnc() {
+           //var gender=this.value;
+            var radio=document.getElementsByName('gender');
+            var gender;
+            for(var i=0;i<radio.length;i++){
+                if(radio[i].checked==true)
+                    gender=radio[i].value;
+            }
+            var salary= document.getElementById('searchSalary').value;
+            console.log(gender,salary);
+            genderEm = employees.filter(item => item.gender == gender && item.salary == salary);
             document.getElementById('tbd').remove();
-            document.getElementById('tbl').appendChild(makeBody(salaryEmp));
+            document.getElementById('tbl').appendChild( makeBody(genderEm));
         }
-        
 
-
-        // function onChanegeFunc(){ //onchange 이벤트의 콜백함수
-        //     //  console.log(this);
-        //             var gender = this.value;
-        //             genderEmp = employees.filter(item => item.gender == gender);
-        //             // console.log(genderEmp);
-        //             document.getElementById('tbd').remove();
-        //             document.getElementById('tbl').appendChild(makeBody(genderEmp));
-        // }
 
         function makeBody(ary) {
             var tbody = document.createElement('tbody');
