@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: DodgerBlue;
+            width: 480px;
+        }
+
+        .flex-container>div {
+            background-color: #f1f1f1;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+            border-radius: 5px;
+        }
+
+        #display {
+            width: 100%;
+            text-align: right;
+            padding-right: 15px;
+            background-color: lightskyblue;
+        }
+
+        #display_1{
+            width: 100%;
+            text-align: right;
+            padding-right: 15px;
+            background-color: lightskyblue;
+        }
+        .flex-container>div:hover {
+            background-color: greenyellow;
+            color: gray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Flexible Boxes</h1>
+
+    <div class="flex-container">
+        <div id='display_1'>경로 출력</div>
+        <div id='display'> 0 </div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>*</div>
+        <div>0</div>
+        <div>C</div>
+        <div>=</div>
+        <div>/</div>
+
+
+    </div>
+
+    <script>
+        var btns = document.querySelectorAll('.flex-container>div');
+        var first = 0,
+            last = 0,
+            oper = '+';
+        for (var btn of btns) {
+            btn.addEventListener('click', function () {
+                var display = document.getElementById('display');
+                var display_1 = document.getElementById('display_1');
+                if (this.textContent == '=') {
+                    last = display.textContent;
+                    var result = cal(first, last, oper);
+                    console.log(result);
+                    display.textContent = result;
+
+                } else if (this.textContent == 'C') {
+                    display.textContent= '0';
+
+                    // display.innerHTML = '&nbsp;';
+
+                } else if (this.textContent == '+') {
+                    first = display.textContent;
+                    oper = '+';
+                    display.textContent= '0';
+                    
+                    // display.innerHTML = '&nbsp;';
+
+                } else if (this.textContent == '-') {
+                    first = display.textContent;
+                    oper = '-';
+                    display.textContent= '0';
+                    // display.innerHTML = '&nbsp;';
+
+                } else if (this.textContent == '*') {
+                    first = display.textContent;
+                    oper = '*';
+                    display.textContent= '0';
+                    // display.innerHTML = '&nbsp;';
+
+                } else if (this.textContent == '/') {
+                    first = display.textContent;
+                    oper = '/';
+                    display.textContent= '0';
+                    // display.innerHTML = '&nbsp;';
+
+                } else {
+                    if(display.textContent == 0) {
+                        display.innerHTML = '&nbsp;';
+                        display.textContent += this.textContent;
+                    }
+                    else 
+                    display.textContent += this.textContent;
+                    
+                }
+
+            })
+        }
+
+        function cal(num1, num2, oper) {
+            if (oper == '+') {
+                return parseInt(num1) + parseInt(num2);
+            } else if (oper == '-') {
+                return parseInt(num1) - parseInt(num2);
+            }
+            else if (oper == '*') {
+                return parseInt(num1) * parseInt(num2);
+            }
+            else if (oper == '/') {
+                return parseInt(num1) / parseInt(num2);
+            }
+        }
+    </script>
+
+    <p>Try to resize the browser window.</p>
+    <p>A container with "flex-wrap: nowrap;" will never wrap its items.</p>
+    <p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 or earlier versions.</p>
+
+</body>
+
+</html>

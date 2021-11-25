@@ -160,12 +160,14 @@ function changeFnc() {
 }
 
 function makeBody() {
-    var tbody = document.createElement('tbody');
-    tbody.setAttribute('id', 'tby');
-    for (var student of students) {
+    // var tbody = document.createElement('tbody');
+    // tbody.setAttribute('id', 'tby');
+    // for (var student of students) {
 
-        tbody.appendChild(getTrStudent(student));
-        /*
+    //     tbody.appendChild(getTrStudent(student));
+
+
+        
         var tr = document.createElement('tr');
         tr.onmouseover = mouseOverFnc
         tr.onmouseout = mouserOutFnc
@@ -191,7 +193,7 @@ function makeBody() {
         btn.onclick = clickFnc;
         td.appendChild(btn)
         tr.appendChild(td);
-        tbody.appendChild(tr); */
+        tbody.appendChild(tr); 
     }
     return tbody;
 }

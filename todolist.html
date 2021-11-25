@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>todolist.html</title>
+    <style>
+        .buttons {
+            display: inline-block;
+            width: 200px;
+        }
+
+        #todo {
+            background-color: khaki;
+            ;
+        }
+
+        #complete {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <header>
+            <h1>To do list</h1>
+            <input type="text" name="text" id="text">
+            <button id="new">+</button>
+
+        </header>
+
+        <div id="wrapper">
+            <h3>To Do</h3>
+            <ul id="todo">
+                <li>Complete
+                    <div class="buttons">
+                        <button onclick="deleteFnc(event)">Delete</button>
+                        <button onclick="completeFnc(event)">complete</button>
+                    </div>
+                </li>
+            </ul>
+
+            <h3> Completed</h3>
+            <ul id="complete">
+                <li>Completed!!
+                    <div class="buttons">
+                        <button onclick="deleteFnc(event)">Delete</button>
+                        <button onclick="TodoFnc(event)">todo</button>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+
+//교수님이 작성한 부분
+        //등록이벤트.
+        document.getElementById('text').addEventListener('keyup',function(){
+            if(e.keyCode ==13){
+                addCallBackFnc();
+            }
+            console.log(e)
+        })
+        // document.getElementById('text').addEventListener('change',addCallBackFnc);
+        document.getElementById('new').addEventListener('click',addCallBackFnc);
+            
+        function addCallBackFnc(){
+        var userInputValue = document.getElementById('text').value;
+            if(userInputValue){
+                addNewItem(userInputValue);
+                document.getElementById('text').value = '';
+            }
+        }
+
+        //todo
+        function addNewItem(item){
+            var li = document.createElement('li');
+            var val = document.createTextNode(item + ' ');
+            li.appendChild(val);
+            var div = document.createElement('div');
+            div.setAttribute('class','buttons')
+            var delBtn = document.createElement('button');
+            delBtn.textContent='Delete';
+            delBtn.addEventListener('click', deleteFnc);
+            var comBtn = document.createElement('button');
+            comBtn.textContent='Complete';
+            comBtn.addEventListener('click',completeFnc);
+            div.addend(delBtn,comBtn);
+            li.appendChild(div);
+
+            document.getElementById('tobo').appendChild(li);
+        }
+
+        function completeFnc(e) {
+            var targetList = e.target.parentNode.parentNode;
+            if(e.target.textContent == 'Complte'){
+            targetList.children[0].children[1].textContent = 'todo';
+            document.getElementById('complete').appendChild(targetList);
+        }
+        else{
+            targetList.children[0].children[1].textContent = 'complete';
+            document.getElementById('todo').appendChild(targetList);
+        }
+
+        
+
+
+
+
+
+// 내가작성한부분
+        function completeFnc(e) {
+            var targetList = e.target.parentNode.parentNode;
+            targetList.children[0].children[1].textContent = 'todo';
+            document.getElementById('complete').appendChild(targetList);
+            
+        }
+
+        function TodoFnc(e) {
+            var targetList = e.target.parentNode.parentNode;
+            targetList.children[0].children[1].textContent = 'complete';
+            document.getElementById('todo').appendChild(targetList);
+        }
+
+        function deleteFnc(e) {
+            var targetList = e.target.parentNode.parentNode;
+            targetList.remove(targetList.parentNode.parentNode);
+
+        }
+
+
+        document.getElementById("new").addEventListener('click', function () {
+            var userInputValue = document.getElementById('text').value;
+            var li = document.createElement('li');
+            var val = document.createTextNode(userInputValue + ' ');
+            li.appendChild(val);
+            var div = document.createElement('div');
+            div.setAttribute('class', 'buttons');
+            div.innerHTML =
+                '<button onclick="deleteFnc(event)">Delete</button> <button onclick="completeFnc(event)">complete</button>'
+            li.appendChild(div);
+
+            document.getElementById('todo').appendChild(li);
+
+        })
+    </script>
+</body>
+
+</html>
